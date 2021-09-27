@@ -9,11 +9,12 @@ export const getMessages = async (trafficAreaName, date) => {
                 format: 'json',
                 ...(trafficAreaName && {trafficareaname: trafficAreaName}),
                 ...(date && {date: date}),
+                size: 99999
             }
         })
         .then(res => {
             if (res.status === 200) {
-                resolve(res)
+                resolve(res.data)
             } else {
                 throw new Error(res.statusText)
             }
@@ -24,6 +25,26 @@ export const getMessages = async (trafficAreaName, date) => {
     })
 }
 
-export const listTrafficAreas = async (latitude, longitude) => {
-
+export const listTrafficAreas = async (latitude, longitude, radius) => {
+  return new Promise((resolve, reject) => {
+    axios.get(baseUrl+'/areas', {
+        params: {
+            format: 'json',
+            ...(latitude && {latitude}),
+            ...(longitude && {longitude}),
+            ...(radius && {radius}),
+            size: 99999
+        }
+    })
+    .then(res => {
+        if (res.status === 200) {
+            resolve(res.data)
+        } else {
+            throw new Error(res.statusText)
+        }
+    })
+    .catch(err => {
+        reject(err)
+    })
+})
 }
