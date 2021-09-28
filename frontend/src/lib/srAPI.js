@@ -25,14 +25,13 @@ export const getMessages = async (trafficAreaName, date) => {
     })
 }
 
-export const listTrafficAreas = async (latitude, longitude, radius) => {
+export const listTrafficAreas = async (latitude, longitude) => {
   return new Promise((resolve, reject) => {
     axios.get(baseUrl+'/areas', {
         params: {
             format: 'json',
             ...(latitude && {latitude}),
             ...(longitude && {longitude}),
-            ...(radius && {radius}),
             size: 99999
         }
     })

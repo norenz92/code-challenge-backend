@@ -1,26 +1,39 @@
-var express = require('express');
-var { graphqlHTTP } = require('express-graphql');
-var { buildSchema } = require('graphql');
+import * as db from './src/db/index.js';
+import * as sr from './src/sr/index.js';
+import express from 'express';
+import cors from 'cors';
+import pkg from 'body-parser';
+const { urlencoded, json } = pkg;
 
-// Construct a schema, using GraphQL schema language
-var schema = buildSchema(`
-  type Query {
-    hello: String
-  }
-`);
+const app = express();
+const port = 3001;
 
-// The root provides a resolver function for each API endpoint
-var root = {
-  hello: () => {
-    return 'Hello world!';
-  },
-};
+db.init();
+sr.init();
 
-var app = express();
-app.use('/graphql', graphqlHTTP({
-  schema: schema,
-  rootValue: root,
-  graphiql: true,
-}));
-app.listen(4000);
-console.log('Running a GraphQL API server at http://localhost:4000/graphql');
+app.use(cors());
+
+// Configuring body parser middleware
+app.use(urlencoded({ extended: false }));
+app.use(json());
+
+app.post('/addSubscriber', (req, res) => {
+    console.log(req.body)
+    let data = req.body
+    console.log(data)
+    db.addUser(data).then(data => {
+      res.json(data)
+    }).catch(err => res.json(err))
+    
+});
+
+app.post('/deleteSubscriber', (req, res) => {
+  console.log(req.body)
+  let email = req.body.email
+  db.deleteUser(email).then(data => {
+    res.json(data)
+  }).catch(err => res.json(err))
+  
+});
+
+app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));

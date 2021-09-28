@@ -5,8 +5,8 @@ const Map = ({userLocation, children}) => {
 
     const defaultProps = {
         center: {
-          lat: 59.95,
-          lng: 30.33
+          lat: 55.6129397,
+          lng: 13.0107805
         },
         zoom: 11
     };
@@ -16,9 +16,8 @@ const Map = ({userLocation, children}) => {
         <div style={{ height: '100vh', width: '100%' }}>
             <GoogleMapReact
                 bootstrapURLKeys={{ key: ''}}
-                defaultCenter={userLocation ? {lat: userLocation.coords.latitude, lon: userLocation.coords.longitude} : defaultProps.center}
+                defaultCenter={defaultProps.center}
                 defaultZoom={11}
-                center={userLocation ? {lat: userLocation.coords.latitude, lon: userLocation.coords.longitude} : defaultProps.center}
             >
               {children}
             </GoogleMapReact>
