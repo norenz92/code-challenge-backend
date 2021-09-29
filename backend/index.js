@@ -1,5 +1,5 @@
-import * as db from './src/db/index.js';
-import * as sr from './src/sr/index.js';
+import * as db from './db.js';
+import * as sr from './sr.js';
 import express from 'express';
 import cors from 'cors';
 import pkg from 'body-parser';

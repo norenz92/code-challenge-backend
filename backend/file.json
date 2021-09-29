@@ -1,17 +1,10 @@
 {
   "users": {
-    "test@test.com": {
-      "createdAt": 1632824743431,
-      "expiresAt": 1632911143431,
-      "email": "test@test.com",
-      "area": "Malmöhus",
-      "notifications": {}
-    },
-    "info@adamnoren.se": {
-      "createdAt": 1632825968123,
-      "expiresAt": 1632912368123,
-      "email": "info@adamnoren.se",
-      "area": "Värmland",
+    "norenz@hotmail.com": {
+      "createdAt": 1632948846720,
+      "expiresAt": 1633035246720,
+      "email": "norenz@hotmail.com",
+      "area": "Kristianstad",
       "notifications": {}
     }
   }
