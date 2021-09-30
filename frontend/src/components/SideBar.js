@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {Select, MenuItem, TextField, FormControl, InputLabel, Button, Slider} from '@material-ui/core';
 import { listTrafficAreas } from '../lib/srAPI';
-import { getUserLocation, saveUserNotification, deleteSubscriber } from '../lib/api';
+import { getUserLocation, addSubscriber, deleteSubscriber } from '../lib/api';
 
 const SideBar = ({onUserLocationChange, onAreaChange}) => {
 
@@ -27,6 +27,7 @@ const SideBar = ({onUserLocationChange, onAreaChange}) => {
       onUserLocationChange(pos)
     } catch (err) {
       console.log(err)
+      window.alert('Kunde inte hämta position')
     }
   }
 
@@ -43,7 +44,11 @@ const SideBar = ({onUserLocationChange, onAreaChange}) => {
   const handleSubscribe = () => {
     let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if ((re.test(email)) && (selectedArea !== '')) {
-      saveUserNotification(email, selectedArea)
+      addSubscriber(email, selectedArea).then(() => {
+        window.alert('Prenumeration registrerad!')
+      }).catch(err => {
+        window.alert('Prenumerationen misslyckades!')
+      });
     } else {
       window.alert('Enter all details')
     }
@@ -52,7 +57,14 @@ const SideBar = ({onUserLocationChange, onAreaChange}) => {
   const handleUnsubscribe = () => {
     let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (re.test(email)) {
-      deleteSubscriber(email)
+      deleteSubscriber(email).then((res) => {
+        console.log(res)
+        window.alert(res.data.message)
+        setEmail('')
+      }).catch((err) => {
+        console.log(err)
+        window.alert(err)
+      })
     } else {
       window.alert('Enter all details')
     }
@@ -80,7 +92,7 @@ const SideBar = ({onUserLocationChange, onAreaChange}) => {
         </FormControl>
         <TextField value={email} onChange={(e) => setEmail(e.target.value)} id="email" label="Email" variant={'filled'} style={{marginBottom: 10, marginTop: 10}}/>
         <Button color="primary" variant="contained" style={{marginBottom: 10}} onClick={() => handleSubscribe()}>ANMÄL</Button>
-        <Button color="secondary" variant="contained" onClick={() => handleUnsubscribe()}>AVANMÄL ALLA</Button>
+        <Button color="secondary" variant="contained" onClick={() => handleUnsubscribe()}>AVANMÄL</Button>
       </div>
     </div>
   )

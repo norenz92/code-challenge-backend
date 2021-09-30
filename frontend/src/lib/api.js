@@ -12,7 +12,7 @@ export const getUserLocation = () => {
     })
 }
 
-export const saveUserNotification = async (email, area) => {
+export const addSubscriber = async (email, area) => {
     return new Promise((resolve, reject) => {
         let data = {
             createdAt: new Date().getTime(),
@@ -21,7 +21,11 @@ export const saveUserNotification = async (email, area) => {
             area
         }
         axios.post('http://localhost:3001/addSubscriber', data).then(res => {
+          if (res.data.success) {
             resolve(res)
+          } else {
+            reject(res)
+          }
         }).catch(err => reject(err))
     })
 }

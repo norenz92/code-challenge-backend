@@ -58,10 +58,10 @@ export const addUser = async (data) => {
 
         // Write db.data content to db.json
         await db.write()
-        return {success: false, error: null}
+        return {success: false, message: null}
     } catch (err) {
         console.log(err)
-        return err;
+        return {success: false, message: 'Kunde inte lägga till epost'}
     }
 }
 
@@ -74,25 +74,35 @@ export const deleteUser = async (email) => {
         if (db.data.users[email]) {
             delete db.data.users[email];
         } else {
-            return {success: false, error: "User does not exist"}
+            return {success: false, message: "Eposten existerar inte"}
         }
 
         // Write db.data content to db.json
         await db.write()
-        return {success: false, error: null}
+        return {success: false, message: 'Epost borttagen!'}
     } catch (err) {
         console.log(err)
-        return err;
+        return {success: false, message: 'Kunde inte ta bort epost'}
     }
 }
 
 export const listUsers = async () => {
   try {
       await db.read()
-      return db.data;
+      return db.data.users;
   } catch (err) {
       console.log(err)
       return err;
+  }
+}
+
+export const updateUsers = async (users) => {
+  try {
+    await db.read()
+    db.data.users = users;
+    await db.write()
+  } catch (err) {
+    console.log(err)
   }
 }
 

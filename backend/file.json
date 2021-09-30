@@ -1,11 +1,72 @@
 {
   "users": {
-    "norenz@hotmail.com": {
-      "createdAt": 1632948846720,
-      "expiresAt": 1633035246720,
-      "email": "norenz@hotmail.com",
+    "info@adamnoren.se": {
+      "createdAt": 1633032685960,
+      "expiresAt": 1633119085960,
+      "email": "info@adamnoren.se",
       "area": "Kristianstad",
-      "notifications": {}
+      "notifications": {
+        "8410864": {
+          "id": 8410864,
+          "priority": 3,
+          "createddate": "/Date(1630898320907+0200)/",
+          "title": "E6 Ängelholm–Halmstad",
+          "exactlocation": "Tpl Hjärnarp (37)–Hallandsås (38) i båda riktningar",
+          "description": "Tidvis långa köer pga broarbete.",
+          "latitude": 56.39048767089844,
+          "longitude": 12.93967056274414,
+          "category": 0,
+          "subcategory": "Vägarbete"
+        },
+        "8599972": {
+          "id": 8599972,
+          "priority": 3,
+          "createddate": "/Date(1631596233333+0200)/",
+          "title": "Ängelholm–Helsingborg",
+          "exactlocation": "Maria Station",
+          "description": "Pågatågen mellan Ängelholm-Maria ersatta med buss enligt tillfällig tidtabell. Öresundstågen går annan väg via Ängelholm-Åstorp-Kävlinge. Orsaken är banarbete. ",
+          "latitude": 56.08431213407267,
+          "longitude": 12.726963661373432,
+          "category": 1,
+          "subcategory": "Tåg"
+        },
+        "8622754": {
+          "id": 8622754,
+          "priority": 3,
+          "createddate": "/Date(1632134106667+0200)/",
+          "title": "Rv 15 Osby–Lönsboda",
+          "exactlocation": "Väster om Lönsboda",
+          "description": "Kabelarbete och trafiken regleras med trafikljus.",
+          "latitude": 56.382484436035156,
+          "longitude": 14.268985748291016,
+          "category": 0,
+          "subcategory": "Vägarbete"
+        },
+        "8632782": {
+          "id": 8632782,
+          "priority": 3,
+          "createddate": "/Date(1633009919510+0200)/",
+          "title": "Rv 19 Kristianstad–Knislinge",
+          "exactlocation": "Karpalund–Vinnö , i båda riktningar.",
+          "description": "Köer pga ett arbete med busshållplatser mellan Karpalund och Vinnö. Trafiken regleras med trafikljus.",
+          "latitude": 56.04814910888672,
+          "longitude": 14.088414192199707,
+          "category": 0,
+          "subcategory": "Vägarbete"
+        },
+        "8632986": {
+          "id": 8632986,
+          "priority": 3,
+          "createddate": "/Date(1633016574963+0200)/",
+          "title": "Rv 9 Simrishamn–Brösarp",
+          "exactlocation": "Tobisvik–Baskemölla båda riktningarna",
+          "description": "Risk för kö pga ett vägarbete. Trafiken regleras med trafikljus. Akut vattenläcka",
+          "latitude": 55.56804275512695,
+          "longitude": 14.333852767944336,
+          "category": 0,
+          "subcategory": "Vägarbete"
+        }
+      }
     }
   }
 }
