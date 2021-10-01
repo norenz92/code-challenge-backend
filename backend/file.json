@@ -1,9 +1,9 @@
 {
   "users": {
-    "info@adamnoren.se": {
-      "createdAt": 1633032685960,
-      "expiresAt": 1633119085960,
-      "email": "info@adamnoren.se",
+    "demo@demo.com": {
+      "createdAt": 1633087907341,
+      "expiresAt": 1633174307341,
+      "email": "demo@demo.com",
       "area": "Kristianstad",
       "notifications": {
         "8410864": {
@@ -54,17 +54,169 @@
           "category": 0,
           "subcategory": "Vägarbete"
         },
-        "8632986": {
-          "id": 8632986,
+        "8632906": {
+          "id": 8632906,
           "priority": 3,
-          "createddate": "/Date(1633016574963+0200)/",
-          "title": "Rv 9 Simrishamn–Brösarp",
-          "exactlocation": "Tobisvik–Baskemölla båda riktningarna",
-          "description": "Risk för kö pga ett vägarbete. Trafiken regleras med trafikljus. Akut vattenläcka",
-          "latitude": 55.56804275512695,
-          "longitude": 14.333852767944336,
+          "createddate": "/Date(1633086213643+0200)/",
+          "title": "E6 Ängelholm–Helsingborg",
+          "exactlocation": "Tpl Strövelstorp (32)–Fleninge (31) i riktning mot Helsingborg.",
+          "description": "Risk för kö pga akut vägskada som måste fixas.",
+          "latitude": 56.1799201965332,
+          "longitude": 12.84913444519043,
           "category": 0,
           "subcategory": "Vägarbete"
+        },
+        "8633682": {
+          "id": 8633682,
+          "priority": 3,
+          "createddate": "/Date(1633086867277+0200)/",
+          "title": "Rv 13 Hörby–Sjöbo",
+          "exactlocation": "I höjd med Brandstad båda riktningarna",
+          "description": "Vägen avstängd. Singelolycka med lastbil norr om Sjöbo. Prognos kl 16.00. Följ orange omledning",
+          "latitude": 55.67893981933594,
+          "longitude": 13.71651554107666,
+          "category": 0,
+          "subcategory": "Trafikolycka"
+        },
+        "8633749": {
+          "id": 8633749,
+          "priority": 3,
+          "createddate": "/Date(1633087984263+0200)/",
+          "title": "Lv 105 Ängelholm–Torekov",
+          "exactlocation": "Bökesliden–Grevie i riktning mot Torekov.",
+          "description": "Risk för halka pga sliirigt väglag. Personal på väg.",
+          "latitude": 56.36106872558594,
+          "longitude": 12.799827575683594,
+          "category": 0,
+          "subcategory": "Trafikstörning"
+        },
+        "8633766": {
+          "id": 8633766,
+          "priority": 3,
+          "createddate": "/Date(1633088816857+0200)/",
+          "title": "E22 Lund–Hörby",
+          "exactlocation": "Tpl Lund N (22)–Gårdstånga (23) i riktning mot Hörby",
+          "description": "Trångt att passera pga en personbil och släp med haveri norr om Lund.",
+          "latitude": 55.74648666381836,
+          "longitude": 13.262312889099121,
+          "category": 0,
+          "subcategory": "Trafikstörning"
+        },
+        "8633810": {
+          "id": 8633810,
+          "priority": 3,
+          "createddate": "/Date(1633091272247+0200)/",
+          "title": "Lv 2074 Ivöfärjan",
+          "exactlocation": "I båda riktningar.",
+          "description": "På grund av driftstörning är Ivöleden inställd och beräknas åter kunna trafikera runt kl. 16:00.",
+          "latitude": 56.11260986328125,
+          "longitude": 14.37817096710205,
+          "category": 0,
+          "subcategory": "Färja"
+        },
+        "8633827": {
+          "id": 8633827,
+          "priority": 3,
+          "createddate": "/Date(1633092667783+0200)/",
+          "title": "Rv 11 Dalby–Sjöbo",
+          "exactlocation": "Knivsåsen–tpl Veberöd V i riktning mot Sjöbo",
+          "description": "Köer pga en personbil med haveri i höjd med avfarten mot Veberöd.",
+          "latitude": 55.63737106323242,
+          "longitude": 13.654597282409668,
+          "category": 0,
+          "subcategory": "Trafikstörning"
+        }
+      }
+    },
+    "apa@apa.com": {
+      "createdAt": 1633095305097,
+      "expiresAt": 1633181705097,
+      "email": "apa@apa.com",
+      "area": "Malmöhus",
+      "notifications": {
+        "8599972": {
+          "id": 8599972,
+          "priority": 3,
+          "createddate": "/Date(1631596233333+0200)/",
+          "title": "Ängelholm–Helsingborg",
+          "exactlocation": "Maria Station",
+          "description": "Pågatågen mellan Ängelholm-Maria ersatta med buss enligt tillfällig tidtabell. Öresundstågen går annan väg via Ängelholm-Åstorp-Kävlinge. Orsaken är banarbete. ",
+          "latitude": 56.08431213407267,
+          "longitude": 12.726963661373432,
+          "category": 1,
+          "subcategory": "Tåg"
+        },
+        "8616192": {
+          "id": 8616192,
+          "priority": 2,
+          "createddate": "/Date(1632625200190+0200)/",
+          "title": "E22 Lund–Hörby",
+          "exactlocation": "Tpl Fogdarp (27)– Norrehe (29), i båda riktningar.",
+          "description": "Vägen avstängd fredag och lördag kl 22:00-05:00. Följ orange vägvisning.",
+          "latitude": 55.842472076416016,
+          "longitude": 13.582504272460938,
+          "category": 0,
+          "subcategory": "Vägarbete"
+        },
+        "8616839": {
+          "id": 8616839,
+          "priority": 2,
+          "createddate": "/Date(1632495493570+0200)/",
+          "title": "E22 Lund–Hörby",
+          "exactlocation": "Tpl Fogdarp (27)–tpl Norrehe (29) i riktning mot Kristianstad",
+          "description": "Vägen avstängd pga underhållsarbete med vattenskydd. Norrgående riktning omleds via lv 1134 och rv 13.",
+          "latitude": 55.8421745300293,
+          "longitude": 13.581604957580566,
+          "category": 0,
+          "subcategory": "Vägarbete"
+        },
+        "8629464": {
+          "id": 8629464,
+          "priority": 3,
+          "createddate": "/Date(1632729837703+0200)/",
+          "title": "Rv 13 Sjöbo–Ystad",
+          "exactlocation": "Snogeholmssjön, i båda riktningar.",
+          "description": "Trafiken regleras med trafikljus på grund av breddning av befintlig väg.",
+          "latitude": 55.559303283691406,
+          "longitude": 13.746833801269531,
+          "category": 0,
+          "subcategory": "Vägarbete"
+        },
+        "8633784": {
+          "id": 8633784,
+          "priority": 3,
+          "createddate": "/Date(1633094185513+0200)/",
+          "title": "E6 Malmö–Trelleborg",
+          "exactlocation": "Tpl V Klagstorp (11)–Vellinge N2 (10) i riktning mot Trelleborg",
+          "description": "Personbil står illa till på vägrenen strax innan trafikplats Vellinge N.",
+          "latitude": 55.5064811706543,
+          "longitude": 13.017107009887695,
+          "category": 0,
+          "subcategory": "Trafikstörning"
+        },
+        "8633827": {
+          "id": 8633827,
+          "priority": 3,
+          "createddate": "/Date(1633092667783+0200)/",
+          "title": "Rv 11 Dalby–Sjöbo",
+          "exactlocation": "Knivsåsen–tpl Veberöd V i riktning mot Sjöbo",
+          "description": "Köer pga en personbil med haveri i höjd med avfarten mot Veberöd.",
+          "latitude": 55.63737106323242,
+          "longitude": 13.654597282409668,
+          "category": 0,
+          "subcategory": "Trafikstörning"
+        },
+        "8633832": {
+          "id": 8633832,
+          "priority": 3,
+          "createddate": "/Date(1633092927100+0200)/",
+          "title": "E6 Malmö",
+          "exactlocation": "Tpl Sallerup (15)–Fredriksberg (14) i riktning mot Köpenhamn",
+          "description": "Trångt att passera pga av en lastbil med haveri som står illa till.",
+          "latitude": 55.57268142700195,
+          "longitude": 13.101397514343262,
+          "category": 0,
+          "subcategory": "Trafikstörning"
         }
       }
     }

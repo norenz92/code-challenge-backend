@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {Select, MenuItem, TextField, FormControl, InputLabel, Button, Slider} from '@material-ui/core';
+import {LocationSearching} from '@mui/icons-material'
 import { listTrafficAreas } from '../lib/srAPI';
 import { getUserLocation, addSubscriber, deleteSubscriber } from '../lib/api';
 
@@ -42,32 +43,26 @@ const SideBar = ({onUserLocationChange, onAreaChange}) => {
   }, [selectedArea])
 
   const handleSubscribe = () => {
-    let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if ((re.test(email)) && (selectedArea !== '')) {
-      addSubscriber(email, selectedArea).then(() => {
-        window.alert('Prenumeration registrerad!')
+    if (selectedArea !== '') {
+      addSubscriber(email, selectedArea).then((res) => {
+        console.log(res)
+        window.alert('Epost registrerad!')
       }).catch(err => {
-        window.alert('Prenumerationen misslyckades!')
+        console.log(err)
+        window.alert(err.data.message)
       });
     } else {
-      window.alert('Enter all details')
+      window.alert('Ange område')
     }
   }
 
   const handleUnsubscribe = () => {
-    let re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (re.test(email)) {
-      deleteSubscriber(email).then((res) => {
-        console.log(res)
-        window.alert(res.data.message)
-        setEmail('')
-      }).catch((err) => {
-        console.log(err)
-        window.alert(err)
-      })
-    } else {
-      window.alert('Enter all details')
-    }
+    deleteSubscriber(email).then((res) => {
+      window.alert(res.data.message)
+      setEmail('')
+    }).catch((err) => {
+      window.alert(err.message)
+    })
   }
 
   return (
@@ -75,8 +70,8 @@ const SideBar = ({onUserLocationChange, onAreaChange}) => {
       <div className="upperContainer">
         <span className="title">Prenumerera</span>
         <span className="subtitle">Få notifikationer via epost vid händelser nära dig</span>
-        <Button color="primary" variant="contained" style={{marginBottom: 10}} onClick={() => onGetPosition()}>HÄMTA POSITION</Button>
-        <span>eller välj område</span>
+        <Button color="info" variant="contained" style={{marginBottom: 10}} onClick={() => onGetPosition()} startIcon={<LocationSearching />}>HÄMTA POSITION</Button>
+        <span className="pickAreaText">eller välj område</span>
         <FormControl fullWidth>
           <InputLabel id="areaSelectorLabel">Område</InputLabel>
           <Select

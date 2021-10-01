@@ -8,6 +8,7 @@ const { urlencoded, json } = pkg;
 const app = express();
 const port = 3001;
 
+// Start workers
 db.init();
 sr.init();
 
@@ -18,19 +19,16 @@ app.use(urlencoded({ extended: false }));
 app.use(json());
 
 app.post('/addSubscriber', (req, res) => {
-    console.log(req.body)
-    let data = req.body
-    console.log(data)
-    db.addUser(data).then(data => {
-      res.json(data)
-    }).catch(err => res.json(err))
-    
+  db.addUser(req.body).then(data => {
+    res.json(data)
+  }).catch(err => {
+    console.log(err)
+    res.json(err)
+  })
 });
 
 app.post('/deleteSubscriber', (req, res) => {
-  console.log(req.body)
-  let email = req.body.email
-  db.deleteUser(email).then(data => {
+  db.deleteUser(req).then(data => {
     res.json(data)
   }).catch(err => res.json(err))
   

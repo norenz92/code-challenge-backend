@@ -42,22 +42,22 @@
 .firstLine {
   display: flex;
   justify-content: space-between;
+  margin-bottom: 10px;
 }
 
 .sideBar {
   background-color: white;
-  max-width: 50%;
   padding: 30px;
   position: absolute;
   top: 20px;
   left: 20px;
+  margin-right: 20px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
 }
 
 .title {
-  font-size: 20px;
+  font-size: 30px;
 }
 
 .sideBar ul {
@@ -101,4 +101,9 @@
 .lowerContainer {
   display: flex;
   flex-direction: column;
+}
+
+.pickAreaText {
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

@@ -1,22 +1,31 @@
 import React, {useEffect} from 'react';
-import Popover from '@material-ui/core/Popover';
-import Typography from '@material-ui/core/Typography';
+import {Popover, Typography, Chip } from '@material-ui/core';
+import {Alert, AlertTitle} from '@mui/material';
 import { makeStyles } from '@material-ui/core/styles';
 import { Traffic, Train, CalendarToday, InfoRounded } from '@material-ui/icons';
+import { maxWidth } from '@mui/system';
+const moment = require('moment')
 
 const icons = {
   priority: {
-    1: 'red',
-    2: 'orange',
-    3: 'yellow',
-    4: 'blue',
-    5: 'grey'
+    1: '#f06360',
+    2: '#ffa117',
+    3: '#03a9f4',
+    4: '#5cb660',
+    5: '#656565'
   },
   category: {
     0: Traffic,
     1: Train,
     2: CalendarToday,
     3: InfoRounded
+  },
+  severity: {
+    1: 'error',
+    2: 'warning',
+    3: 'info',
+    4: 'info',
+    5: 'info'
   }
 }
 
@@ -25,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
     pointerEvents: 'none',
   },
   paper: {
-    padding: theme.spacing(1),
+    padding: theme.spacing(0),
   },
 }));
 
@@ -75,16 +84,24 @@ export default function MessageMarker({message}) {
         onClose={handlePopoverClose}
         disableRestoreFocus
       >
-        <div className="MessageMarker">
+        {/* <div className="MessageMarker">
           <div className="firstLine">
-            <span className="date">{message.subcategory}</span>
-            <span className="date">{new Date().toLocaleDateString()} {new Date().toLocaleTimeString()}</span>
+            <Chip label={message.subcategory} />
+            <span className="date">{moment(message.createddate).format('YYYY-MM-DD HH:mm')}</span>
           </div>
           <span className="title">{message.title}</span>
           <span className="location">{message.exactlocation}</span>
           <span className="description">{message.description}</span>
           <p></p>
-        </div>
+        </div> */}
+        <Alert severity={icons.severity[message.priority]} color={message.priority === 4 ? 'success' : icons.severity[message.priority]}>
+          <AlertTitle>{message.subcategory} (Prio {message.priority})</AlertTitle>
+          {message.createddate && moment(message.createddate).format('YYYY-MM-DD HH:mm')}
+          {message.title && <><br/><strong>{message.title}</strong></>}
+          {message.exactlocation && <><br/>{message.exactlocation}</>}
+          {message.description && <><br/>{message.description}</>}
+          <p></p>
+        </Alert>
       </Popover>
     </div>
   );

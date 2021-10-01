@@ -1,14 +1,14 @@
-const axios = require('axios').default;
+
+import axios from 'axios';
 
 const baseUrl = 'http://api.sr.se/api/v2/traffic';
 
-export const getMessages = async (trafficAreaName, date) => {
+export const getMessages = async (trafficAreaName) => {
     return new Promise((resolve, reject) => {
         axios.get(baseUrl+'/messages', {
             params: {
                 format: 'json',
                 ...(trafficAreaName && {trafficareaname: trafficAreaName}),
-                ...(date && {date: date}),
                 size: 99999
             }
         })
