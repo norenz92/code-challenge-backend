@@ -48,7 +48,7 @@ describe('API', function() {
             })
             
         });
-        it('should invalidate invalid email', function() {
+        it('should reject invalid email', function() {
             api.addSubscriber('invalid@com').then(res => {
                 assert.doesNotMatch(res.data.success, true)
             }).catch(err => {
