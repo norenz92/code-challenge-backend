@@ -21,20 +21,20 @@ Coding Challenge
 
 # Requirements
 
-- [ ] We want to pull data from the [ Sveriges Radion Trafik API](https://sverigesradio.se/api/documentation/v2/metoder/trafik.html)
-- [ ] A client must provide a geolocation for traffic notifications
-- [ ] A client can update the geolocation for traffic notifications
-- [ ] A client shows a relevant traffic incident that contains at a minimum
-  - [ ] Priority
-  - [ ] Title
-  - [ ] Location
-  - [ ] Description
-  - [ ] Category
+- [X] We want to pull data from the [ Sveriges Radion Trafik API](https://sverigesradio.se/api/documentation/v2/metoder/trafik.html)
+- [X] A client must provide a geolocation for traffic notifications
+- [X] A client can update the geolocation for traffic notifications
+- [X] A client shows a relevant traffic incident that contains at a minimum
+  - [X] Priority
+  - [X] Title
+  - [X] Location
+  - [X] Description
+  - [X] Category
 
 # Bonus if you include
-- [ ] A client can register and receive update alerts using email or SMS (phone mumber) as identifier 
-- [ ] A registred client will automatically unregister after 24 hours (to be polite)
-- [ ] A registred client can unsubscribe from the service
+- [X] A client can register and receive update alerts using email or SMS (phone mumber) as identifier 
+- [X] A registred client will automatically unregister after 24 hours (to be polite)
+- [X] A registred client can unsubscribe from the service
 
 # Tech requirements
 
