@@ -3,10 +3,24 @@ import * as sr from './sr.js';
 import express from 'express';
 import cors from 'cors';
 import pkg from 'body-parser';
+import https from 'https';
+import fs from 'fs';
 const { urlencoded, json } = pkg;
 
 const app = express();
-const port = 3001;
+const port = 3000;
+
+// Certificate
+const privateKey1 = fs.readFileSync('/etc/letsencrypt/live/doro.adamnoren.se/privkey.pem', 'utf8');
+const certificate1 = fs.readFileSync('/etc/letsencrypt/live/doro.adamnoren.se/cert.pem', 'utf8');
+const ca1 = fs.readFileSync('/etc/letsencrypt/live/doro.adamnoren.se/chain.pem', 'utf8');
+const credentials = {
+	key: privateKey1,
+	cert: certificate1,
+	ca: ca1
+};
+
+const httpsServer = https.createServer(credentials, app);
 
 // Start workers
 db.init();
@@ -20,7 +34,7 @@ app.use(json());
 
 // Route for adding subscribers
 app.post('/addSubscriber', (req, res) => {
-  db.addUser(req.body).then(data => {
+  db.addUser(req.body.email, req.body.area).then(data => {
     res.json(data)
   }).catch(err => {
     console.log(err)
@@ -30,11 +44,13 @@ app.post('/addSubscriber', (req, res) => {
 
 // Route for deleting subscribers
 app.post('/deleteSubscriber', (req, res) => {
-  db.deleteUser(req).then(data => {
+  db.deleteUser(req.body.email).then(data => {
     res.json(data)
   }).catch(err => res.json(err))
   
 });
 
 // Start server
-app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));
+httpsServer.listen(port, () => {
+  console.log(`HTTPS Server running on port ${port}`);
+});

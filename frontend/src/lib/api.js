@@ -20,7 +20,7 @@ export const addSubscriber = async (email, area) => {
             email,
             area
         }
-        axios.post('http://localhost:3001/addSubscriber', data).then(res => {
+        axios.post('https://doro.adamnoren.se/api/addSubscriber', data).then(res => {
           if (res.data.success) {
             resolve(res)
           } else {
@@ -32,7 +32,7 @@ export const addSubscriber = async (email, area) => {
 
 export const deleteSubscriber = async (email) => {
     return new Promise((resolve, reject) => {
-        axios.post('http://localhost:3001/deleteSubscriber', {email: email}).then(res => {
+        axios.post('https://doro.adamnoren.se/api/deleteSubscriber', {email: email}).then(res => {
             resolve(res)
         }).catch(err => reject(err))
     })

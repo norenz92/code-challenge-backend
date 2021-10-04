@@ -41,14 +41,14 @@ const cleaningService = async () => {
 }
 
 // Add new email
-export const addUser = (data) => {
+export const addUser = (email, area) => {
     return new Promise(async(resolve, reject) => {
         try {
-            if(!validEmail(data.email)) {
+            if(!validEmail(email)) {
                 console.log('Invalid email')
                 return reject({success: false, message: 'Invalid email'})
             }
-            if((!data.area) || (data.area === '')) {
+            if((!area) || (area === '')) {
                 console.log('Invalid or missing area')
                 return reject({success: false, message: 'Invalid or missing area'})
             }
@@ -61,8 +61,9 @@ export const addUser = (data) => {
             // db.data = db.data || { posts: [] } // for node < v15.x
 
             // Create item
-            db.data.users[data.email] = {
-                ...data,
+            db.data.users[email] = {
+                email,
+                area,
                 notifications: {}
             }
 
@@ -92,7 +93,7 @@ export const deleteUser = (email) => {
 
             // Write db.data content to db.json
             await db.write()
-            resolve({success: false, message: 'Epost borttagen!'})
+            resolve({success: true, message: 'Epost borttagen!'})
         } catch (err) {
             console.log(err)
             reject({success: false, message: 'Kunde inte ta bort epost'})
