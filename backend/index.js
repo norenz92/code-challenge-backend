@@ -18,6 +18,7 @@ app.use(cors());
 app.use(urlencoded({ extended: false }));
 app.use(json());
 
+// Route for adding subscribers
 app.post('/addSubscriber', (req, res) => {
   db.addUser(req.body).then(data => {
     res.json(data)
@@ -27,6 +28,7 @@ app.post('/addSubscriber', (req, res) => {
   })
 });
 
+// Route for deleting subscribers
 app.post('/deleteSubscriber', (req, res) => {
   db.deleteUser(req).then(data => {
     res.json(data)
@@ -34,4 +36,5 @@ app.post('/deleteSubscriber', (req, res) => {
   
 });
 
+// Start server
 app.listen(port, () => console.log(`Hello world app listening on port ${port}!`));

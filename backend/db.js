@@ -40,6 +40,7 @@ const cleaningService = async () => {
     }
 }
 
+// Add new email
 export const addUser = (data) => {
     return new Promise(async(resolve, reject) => {
         try {
@@ -75,15 +76,16 @@ export const addUser = (data) => {
     })
 }
 
-export const deleteUser = (req) => {
+// Delete an email
+export const deleteUser = (email) => {
     return new Promise(async(resolve, reject) => {
         try {
             // Read data from JSON file, this will set db.data content
             await db.read()
             // db.data = db.data || { posts: [] } // for node < v15.x
             // Create item
-            if (db.data.users[req.body.email]) {
-                delete db.data.users[req.body.email];
+            if (db.data.users[email]) {
+                delete db.data.users[email];
             } else {
                 reject({success: false, message: "Eposten existerar inte"})
             }
@@ -98,6 +100,7 @@ export const deleteUser = (req) => {
     })
 }
 
+// List all users
 export const listUsers = async () => {
   try {
       await db.read()
@@ -108,6 +111,7 @@ export const listUsers = async () => {
   }
 }
 
+// Update an existing email
 export const updateUsers = async (users) => {
   try {
     await db.read()
@@ -118,6 +122,7 @@ export const updateUsers = async (users) => {
   }
 }
 
+// Get users by area
 export const getUsersByArea = async () => {
   try {
       await db.read()
@@ -135,6 +140,7 @@ export const getUsersByArea = async () => {
   }
 }
 
+// Validate an email
 const validEmail = (email) => {
     let regex = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
     return regex.test(email)

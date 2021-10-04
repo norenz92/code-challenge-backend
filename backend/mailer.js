@@ -1,7 +1,7 @@
 import sgMail from '@sendgrid/mail';
 sgMail.setApiKey('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')
 
-// async..await is not allowed in global scope, must use a wrapper
+// Send an email to a user
 export async function sendMail(email, message) {
   
   const msg = {
